@@ -1,0 +1,119 @@
+<% unless event.itema.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_a","A", event.akey.include?("A"), :class => "check_key_a" %></div>
+  <div class="events_field"><label for="key_a"><%= event.itema %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemb.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_b","B", event.akey.include?("B"), :class => "check_key_b" %></div>
+  <div class="events_field"><label for="key_b"><%= event.itemb %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemc.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_c","C", event.akey.include?("C"), :class => "check_key_c" %></div>
+  <div class="events_field"><label for="key_c"><%= event.itemc %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemd.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_d","D", event.akey.include?("D"), :class => "check_key_d" %></div>
+  <div class="events_field"><label for="key_d"><%= event.itemd %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.iteme.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_e","E", event.akey.include?("E"), :class => "check_key_e" %></div>
+  <div class="events_field"><label for="key_e"><%= event.iteme %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemf.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_f","F", event.akey.include?("F"), :class => "check_key_f" %></div>
+  <div class="events_field"><label for="key_f"><%= event.itemf %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemg.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_g","G", event.akey.include?("G"), :class => "check_key_g" %></div>
+  <div class="events_field"><label for="key_g"><%= event.itemg %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemh.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_h","H", event.akey.include?("H"), :class => "check_key_h" %></div>
+  <div class="events_field"><label for="key_h"><%= event.itemh %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemi.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_i","I", event.akey.include?("I"), :class => "check_key_i" %></div>
+  <div class="events_field"><label for="key_i"><%= event.itemi %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemj.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= check_box_tag "key_j","J", event.akey.include?("J"), :class => "check_key_j" %></div>
+  <div class="events_field"><label for="key_j"><%= event.itemj %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+
+
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+$('.check_key_a').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_b').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_c').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_d').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_e').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_f').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_g').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_h').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_i').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+$('.check_key_j').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+
+})
+</script>

@@ -1,0 +1,5 @@
+<% unless @user_categories.blank? %>
+<% @user_categories.each do |category| %>
+<%= category.title %><%= count_storages_by_user_category(category.id) %>
+<% end %>
+<% end %>

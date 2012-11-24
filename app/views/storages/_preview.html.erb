@@ -1,0 +1,56 @@
+<table>
+<% unless storage.itema.blank? %>
+  <tr><td>  选项[A]  </td><td>
+<%= storage.itema %>
+  </td></tr>
+<% end %>
+<% unless storage.itemb.blank? %>
+  <tr><td>  选项[B]  </td><td>
+<%= storage.itemb %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemc.blank? %>
+  <tr><td>  选项[C]  </td><td>
+<%= storage.itemc %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemd.blank? %>
+  <tr><td>  选项[D]  </td><td>
+<%= storage.itemd %>
+  </td></tr>
+<% end %>
+  <% unless storage.iteme.blank? %>
+  <tr><td>  选项[E]  </td><td>
+<%= storage.iteme %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemf.blank? %>
+  <tr><td>  选项[F]  </td><td>
+<%= storage.itemf %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemg.blank? %>
+  <tr><td>  选项[G]  </td><td>
+<%= storage.itemg %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemh.blank? %>
+  <tr><td>  选项[H]  </td><td>
+<%= storage.itemh %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemi.blank? %>
+  <tr><td>  选项[I]  </td><td>
+<%= storage.itemi %>
+  </td></tr>
+<% end %>
+  <% unless storage.itemj.blank? %>
+  <tr><td>  选项[J]  </td><td>
+<%= storage.itemj %>
+  </td></tr>
+<% end %>
+  <tr><td>正确答案</td><td><%= storage.key %></td></tr>
+  <tr><td></td>
+    <td><%= button_to "删除", storage_path(storage), :method => :delete %></td></tr>
+</table>
+

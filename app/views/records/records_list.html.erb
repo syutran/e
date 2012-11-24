@@ -1,0 +1,26 @@
+<div id="records_list">
+  <% unless @finished_records.blank? %>
+  <div>
+    <% @finished_records.each do |record| %>
+    <div class="box_record">
+      <div class="box_record_left"><%= image_tag record.rule.user.face.url(:s48) %><%= record.rule.user.name %></div>
+      <div class="box_record_right">
+        <div class="box_record_title">
+    <%= record.title %><div class="score"><%= record.score.round(3).to_s %></div></div>
+        
+        <div class="box_record_center">
+          <div><%= "成绩[" + record.score.round(2).to_s + "]" + " 　总题量[" + (record.success + record.faileds).to_s + "] 　成功数[" + record.success.to_s + "]" %>
+          <%= "总时限[" +record.need_time.to_s + "秒]" %>
+          </div>
+              <div><%= "开始于：[" + format_datetime(record.start_time) + "] 　结束于：[" + format_datetime(record.finish_time) + "]" %></div>
+        </div>
+        <div>
+          <div class="box_record_state">已完成的考试</div>
+        </div>
+      </div>
+      <div class="clearfloat"></div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>

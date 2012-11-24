@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= @page_title || "考试网_在线题库" %></title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag "jquery","rails","jquery.tools.min","jquery.blockUI","jquery.poshytip","jquery.hotkeys","jquery.loading","application" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="head-container">
+    <div id="header">
+      <div style="width: 100%">
+      <div id="logo"><%= img_logo %></div>
+      <%= render :partial => "users/head_menu" %>
+      </div>
+    </div>
+  </div>
+  <div id="navigation-container">
+  <div id="navigation">
+
+  </div>
+</div>
+
+
+  <div id="content-container">
+         <div id="content-container2">
+             <div id="content-container3">
+               <div id="content">
+   <% if flash[:notice] %>
+    <script type="text/javascript">
+      $(function(){
+
+        $.growlUI("","<%= flash[:notice] %>");
+
+      });
+</script>
+<% end %>
+
+<%= yield %>
+    </div>
+    
+    <div id="aside">
+      <%  unless current_user.blank? %>
+      <%= render :partial => "users/information"  %>
+      <% else %>
+      <%= render :partial => "admin/help"  %>
+      <%  end %>
+           <%= yield :sidebar %>
+    </div>
+             </div>
+      </div>
+
+
+    <div id="footer-container">
+    <div id="footer">
+      <%= yield :footbar %>
+    </div>
+  </div>
+    </div>
+</body>
+</html>

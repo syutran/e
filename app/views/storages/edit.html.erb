@@ -1,0 +1,40 @@
+<div class="input_storage">
+<%= form_for @storage do |f| %>
+  <div class="input_storage_row">
+    <div class="input_storage_label"><%= f.label :category_id, "分类" %></div>
+    <div><%= f.select :category_id, user_categories_select(current_user) %></div>
+  </div>
+  <div class="input_storage_row">
+    <div class="input_storage_label"><%= f.label :typies, "类型" %></div>
+    <div><%= f.radio_button :typies,"single",:readonly => true %><%= f.label :typies_single,"单选题", :readonly => true %>
+      <%= f.radio_button :typies, "much", :readonly => true %><%= f.label :typies_much, "多选题", :readonly => true %>
+      <%= f.radio_button :typies,"judge", :readonly => true %><%= f.label :typies_judge, "判断题", :readonly => true  %></div>
+  </div>
+  <div  class="input_storage_row">
+    <div class="input_storage_label"><%= f.label :title, "题目" %></div>
+    <div class="input_storage_field"><%= f.text_area :title, :style => "width:430px;height:120px;overflow-y:auto;" %></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <% if @storage.typies == "single" %>
+    <%= render :partial => "edit_single", :locals => {:f => f} %>
+  <% end %>
+  <% if @storage.typies == "much" %>
+    <%= render :partial => "edit_much", :locals => {:f => f} %>
+  <% end %>
+  <% if @storage.typies == "judge" %>
+    <%= render :partial => "edit_judge", :locals =>{:f => f} %>
+  <% end %>
+  <div class="input_storage_row">
+    <div class="input_storage_label"><%= f.label :speed, "阅题速度" %></div>
+    <div><%= f.select :speed, readspeed %></div>
+  </div>
+  <div class="input_storage_row">
+    <div class="input_storage_button"><%= f.submit "确认修改" %></div>
+  </div>
+<% end %> 
+</div>
+
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>

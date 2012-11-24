@@ -1,0 +1,14 @@
+<div id="table_judge" style ="display: none">
+<div class="input_storage_row">
+  <div class="input_storage_label" >答案</div>
+  <div class="input_storage_field"><%= f.radio_button :key, "true" %><%= f.label :key_true, "叙述正确" %><%= f.radio_button :key, "false" %><%= f.label :key_false, "叙述错误" %></div>
+  <div class="clearfloat"></div>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#table_judge').show(1000);
+
+  });
+ </script>

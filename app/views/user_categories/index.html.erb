@@ -1,0 +1,19 @@
+<% unless @user_categories.blank? %>
+<div>
+  <% @user_categories.each do |c| %>
+  <div>
+    <div class="cate_brow_row">
+      <div class="cate_brow_icon"><%= img_class_c %></div>
+      <div class="cate_brow_right"><div class="cate_brow_title"><%= c.title %></div>
+        <div><%= c.description %></div>
+        <div style="float: right;"><div class="div_button"><%= link_to "变更", edit_user_category_path(c.id) %></div>
+        <div class="div_button"><%= link_to "当前应用", {:action => "change_user_category",:id => c.id} %></div></div>
+      </div><div class="clearfloat"></div>
+    </div>
+  </div>
+<% end %>
+</div>
+<% end %>
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>

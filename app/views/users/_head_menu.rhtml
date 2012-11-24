@@ -1,0 +1,26 @@
+<div id="head_menus">
+ 
+  <% if current_user %>
+
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title = "管理自己的题库和考试规则" ><%= link_to "题库规则", storages_path %></div>
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title ="进行考试/使用可用的考试规则"><%= link_to "考试", records_path %></div>
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title ="查看我的成绩单"><%= link_to "足迹", records_list_path %></div>
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title="我的主考官/我的考生"><%= link_to "圈子", friends_path %></div>
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title="退出/重新登录"><%= link_to "退出系统", log_out_path %></div>
+  <% else %>
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title="Login"><%= link_to "登录", log_in_path  %></div>
+  <div class="offmouse" onmouseover="this.className='onmouse'" onmouseout="this.className='offmouse'" title="singe up"><%= link_to "注册", sign_up_path %></div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+$(".offmouse").poshytip({
+  className: 'tip-yellowsimple',
+	showTimeout: 1,
+	alignTo: 'target',
+	alignX: 'center',
+	offsetY: 5,
+	allowTipHover: false
+});
+  });
+</script>

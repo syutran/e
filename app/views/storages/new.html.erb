@@ -1,0 +1,55 @@
+<div style="border-bottom: 1px #fe6800 solid;width: 100%;margin-bottom: 30px;">
+  <div style="float: left; margin-left: 20px;" > <h3>创建新题目</h3> </div>
+  <div class="clearfloat"></div>
+</div>
+<%= form_for @storage do |f| %>
+<div class="input_storage">
+  <div class="input_storage_row">
+    <div class="input_storage_label">分类</div>
+    <div class="input_storage_field"><%= f.collection_select(:category_id, @user_categories, :id, :title) %></div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="input_storage_row">
+    <div class="input_storage_label">  <%= f.label :title, "题目" %> </div>
+    <div class="input_storage_field"><%= f.text_area :title,  :style => "width:430px;height:120px;overflow-y:auto;"  %>    </div><div class="clearfloat"></div>
+  </div>
+  <div class="input_storage_row">
+    <div class="input_storage_label">  <%= f.label :typies, "类型" %></div>
+    <div class="input_storage_field"><%= f.radio_button :typies, "single" %><%= f.label :typies_single,"单选题目" %>
+ <%= f.radio_button :typies, "much" %><%= f.label :typies_much, "多选题目" %>
+      <%= f.radio_button :typies, "judge" %><%= f.label :typies_judge, "判断题目" %>    </div>
+  </div><div class="clearfloat"></div>
+
+   <div id="subform">
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#storage_typies_single").click(function(){
+      $("#subform").html("<%= escape_javascript render(:partial => "form_single", :locals => {:f => f}) %>");
+    });
+    $("#storage_typies_much").click(function(){
+      $("#subform").html("<%= escape_javascript render(:partial => "form_much", :locals =>{:f => f}) %>");
+    });
+    $("#storage_typies_judge").click(function(){
+      $("#subform").html("<%= escape_javascript render(:partial => "form_judge", :locals => {:f => f}) %>");
+    });
+  })
+</script>
+   </div>
+
+<div class="input_storage_row">
+  <div class="input_storage_label"><%= f.label :speed, "计秒时限" %></div>
+  <div class="input_storage_field"><%= f.select :speed, readspeed %></div><div class="clearfloat"></div>
+</div>
+  <div class="input_storage_row">
+    <div class="input_storage_button" style="padding-right: 55px;"><%= f.submit "提交" %>    </div><div class="clearfloat"></div>
+  </div>
+
+</div>
+<% end %>
+   <div>
+   <%= render :partial =>"storages_list", :locals =>{:storages => @storages} %>
+   </div>
+
+   <% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>

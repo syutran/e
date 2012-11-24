@@ -1,0 +1,61 @@
+<div>
+<%= form_for @rule do |f| %>
+<div class="form_box">
+  <div class="form_title"><h3>新建規則</h3></div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :title, "新规则" %></div>
+    <div class="form_field"><%= f.text_field :title %></div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= "题库选择" %></div>
+    <div class="form_field">
+      <% @user_categories.each do |uc| %>
+      <% if count_user_category(uc.id) >0 %>
+      <label><%= check_box_tag "rule[user_category_ids][]", uc.id %><%=  uc.title %></label>
+        <% end %>
+      <% end %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :limit_time, "限时" %></div>
+    <div class="form_field"><%= f.select :limit_time, select_limit_time %><%= f.hidden_field :category_id, :value => current_user.category_id %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :start_time, "有效期从" %></div>
+    <div class="form_field"><%= f.datetime_select :start_time, :use_month_numbers => true,:discard_year => true %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :end_time, "有效期止" %></div>
+    <div class="form_field"><%= f.datetime_select :end_time, :default => 3.days.from_now,  :use_month_numbers => true, :discard_year => true %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :limits, "对像" %></div>
+    <div class="form_field"><%= f.radio_button :limits, "public" %><%= f.label :limits_public,"公开" %>
+    <%= f.radio_button :limits, "group" %><%= f.label :limits_group,"群组" %>
+    <%= f.radio_button :limits, "closed" %><%= f.label :limits_closed,"关闭" %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label">
+      <%= f.label :fee, "收费" %>
+    </div>
+    <div class="form_field">
+      <%= f.select :fee, select_fee %>
+    </div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :reward, "奖励" %></div>
+    <div class="form_field"><%= f.check_box :reward, {}, "true", "false" %><%= "启用节时奖励"  %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label"><%= f.label :description, "说明" %></div>
+    <div class="form_field"><%= f.text_area :description, :class => "input_area_option" %></div><div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+  <div class="form_button"><%= f.submit "确认无误提交" %></div>
+  </div>
+</div>
+<% end %>
+</div>
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>

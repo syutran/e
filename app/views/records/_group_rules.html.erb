@@ -1,0 +1,48 @@
+<% unless @group_rules.blank? %>
+<div><div class="list_title">
+  主考官的试卷
+</div>
+  <div class="triangle" title="aaaaaaaaaaaaa" id="show_group_popup"></div><div class="clearfloat"></div>
+</div>
+
+<% @group_rules.each do |rule| %>
+<div class="box_rules" title="我的主考官发布的新规则" >
+  <div class="box_rules_left"><div><%= image_tag rule.user.face.url(:s48) %></div><div><%= rule.user.name %></div></div>
+  <div class="box_rules_right">
+<div class="box_rules_right_title"><%= rule.title %></div>
+  <div class="box_rules_right_categories">有效期：<%= rule.end_time.strftime("%Y年%m月%d日　%H点%M分　") %>[<%= rule.limit_time %>分钟题]
+
+        <div>
+          源于分类:<%  rule.user_categories.each do |rc| %>
+          [<%= rc.title  %>]
+    <% end %>
+  </div>
+    <div><p>说明：<%= rule.description %></p></div>
+  </div><div class="clearfloat"></div>
+ <div class="box_record_button"><%= link_to "查看", {:action => "new_event", :controller => "rules", :id => rule} %></div>
+  </div><div class="clearfloat"></div>
+
+</div>
+
+<% end %>
+<% else %>
+
+<% end %>
+<script type="text/javascript">
+$(document).ready(function(){
+var speed = 600;//动画速度
+$("#show_group_popup").click(function(event){//绑定事件处理
+event.stopPropagation();
+var offset = $(event.target).offset();//取消事件冒泡
+$("#group_div_popup").css({ top:offset.top + 12 + $(event.target).height() + "px", right:offset.left - 358 - $(event.target).width() + "px" });//设置弹出层位置
+$("#group_div_popup").show(speed);//动画显示
+});
+$("#hide_group_popup").click(function(event) { $("#group_div_popup").hide(speed) });//单击空白区域隐藏
+});
+
+</script>
+<div id="group_div_popup" class="popup" >
+  <div id="hide_group_popup">
+  aaaaabbbb<br />
+  ccdd</div>
+</div>

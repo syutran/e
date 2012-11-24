@@ -1,0 +1,37 @@
+<div id="racePop" class="raceShow">
+    <%= form_tag  :controller => "storages", :action => "user_storages_list" , :method => :post  do %>
+    <% i = 0 %>
+<% current_user.user_categories.each do |uc| %>
+    <% i += 1 %>
+    <%= check_box_tag "ucid[#{uc.id}]", uc.id %><%= label_tag "ucid[#{uc.id}]",  uc.title   %>
+    <% if i % 3 == 0 %><br /><% end %>
+    <% end %>
+     <div id="hiderace"><%= submit_tag "OK", :class =>"submit" %></div>
+  <% end %>
+
+</div><div class="clearfloat"></div>
+<div class="list_head">
+
+    <div class="list_head_title">我的试题列表</div>
+    <div class="list_head_title" style="float: right" id="race">分类</div>
+  <div class="clearfloat"></div>
+</div>
+<% @storages.each do |s| %>
+<div class="box_storage">
+<div class="box_storage_head">
+  <div class="box_storage_head_title"> <%= s.user_category.title %>[<%= typies_tochinese(s.typies) %>]
+  </div>
+
+  <div class="box_storage_head_right">[<%= link_to "详细", storage_path(s), :remote => true %>][<%= link_to "修改", edit_storage_path(s.id) %>]</div>
+ <div class="clearfloat"></div></div>
+<%= s.title %>
+
+<div id="content_<%= s.id%>" class="cont"></div>
+</div>
+<% end %>
+
+
+
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>

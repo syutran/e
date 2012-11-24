@@ -1,0 +1,9 @@
+<div>
+  <%= render :partial => "records/doing_records"  %>
+  <%= render :partial => "records/new_records" %>
+  <%= render :partial => "records/group_rules" %>
+</div>
+<!-- 边栏菜单 -->
+<% content_for :sidebar do %>
+<%= render :partial => "users/users_menu"  %>
+<% end %>

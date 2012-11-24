@@ -1,0 +1,22 @@
+<div class="box_rules" >
+  <div class="box_rules_left"><div><%= image_tag rule.user.face.url(:s48) %></div><div><%= rule.user.name %></div></div>
+  <div class="box_rules_right">
+<div class="box_rules_right_title"><%= rule.title %></div>
+  <div class="box_rules_right_categories">有效期：<%= format_datetime(rule.end_time) %>[<%= rule.limit_time %>分钟题]
+       <div>
+          <% rule.user_categories.each do |ruc| %>
+        [ <%= ruc.title %>]
+         <% end %>
+  </div>
+    <div><p>说明：<%=h  rule.description.truncate(100) %></p></div>
+
+    <% unless current_user.blank? %>
+    <div class="box_rules_button" >
+<%= (link_to "详情", rule_path(rule)) if current_user.id == rule.user_id %>
+<%= link_to "修改", edit_rule_path(rule) if current_user.id == rule.user_id %>
+<%= button_to "创建试卷", {:action => "create_event", :controller => "rules", :id => rule}, :remote => true, :id => "create_event" %>
+    </div>
+    <% end %>
+  </div>
+  </div><div class="clearfloat"></div>
+</div>

@@ -1,0 +1,71 @@
+<div>
+<div class="box_rules" >
+  <div class="box_rules_left"><div><%= img_rule(@rule.end_time) %></div></div>
+  <div class="box_rules_right">
+<div class="box_rules_right_title"><%= @rule.title %></div>
+  <div class="box_rules_right_categories">
+    开始时间：<%= format_datetime(@rule.start_time) %><br />
+    有效时间：<%= format_datetime(@rule.end_time) %><br />
+    规则限时：[<%= @rule.limit_time %>分钟]
+       <div>类目：
+          <% @rule.user_categories.each do |ruc| %>
+        [ <%= ruc.title %>]
+         <% end %>
+  </div>
+    <div><p>说明：<%= @rule.description %></p></div>
+    <div class="box_rules_button" ><div class="div_button"><%= link_to "修改", edit_rule_path(@rule) -%></div></div>
+  </div>
+
+  </div><div class="clearfloat"></div>
+</div>
+</div>
+
+<div class="header_title">
+  <div style="float: left;" > <h3>规则应用者</h3> </div>
+  <div class="image_arrow" id="htbutton" > <%= img_arrow %> </div>
+  <div class="clearfloat"></div>
+</div>
+
+<div id="title_pup" class="raceShow" style="width:120px;">
+  <div class="sub_menu_item">
+    <%= link_to "姓名升", {:action => "rule_show_records", :controller => "rules", :byorder => "name",:id => @rule.id}, :remote => true %>
+  </div>
+    <div class="sub_menu_item">
+    <%= link_to "姓名降", {:action => "rule_show_records", :controller => "rules", :byorder => "namedesc",:id => @rule.id}, :remote => true %>
+  </div>
+    <div class="sub_menu_item">
+    <%= link_to "成绩升", {:action => "rule_show_records", :controller => "rules", :byorder => "score",:id => @rule.id}, :remote => true %>
+  </div>
+    <div class="sub_menu_item">
+    <%= link_to "成绩降", {:action => "rule_show_records", :controller => "rules", :byorder => "scoredesc",:id => @rule.id}, :remote => true %>
+  </div>
+    <div class="sub_menu_item">
+    <%= link_to "开始时间升", {:action => "rule_show_records", :controller => "rules", :byorder => "start",:id => @rule.id}, :remote => true %>
+  </div>
+    <div class="sub_menu_item">
+    <%= link_to "开始时间降", {:action => "rule_show_records", :controller => "rules", :byorder => "startdesc",:id => @rule.id}, :remote => true %>
+  </div>
+</div>
+
+<div id="rule_users_records_list">
+  <%= render :partial =>"rule_records_list", :locals => {:records => @records} %>
+</div>
+
+
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#htbutton").toggle(function(event){
+      event.stopPropagation();
+      var offset = $(event.target).offset();//取消事件冒泡
+      $("#title_pup").css({ top:offset.top + $(event.target).height() + "px", right:offset.left - 320 - $(event.target).width() + "px" });
+      $("#title_pup").show(400);//动画显示
+    },
+  function(event){
+    $("#title_pup").hide(400);
+  });
+  });
+  </script>

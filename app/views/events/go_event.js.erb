@@ -1,0 +1,2 @@
+$('#events').html("<%= escape_javascript(render(:partial => 'event', :locals => { :event => @event, :record => @event_record})) %>" );
+$('#events_list').html('<%= escape_javascript render(:partial => 'events_lists', :locals => {:events_list => @events,:event => @event}) %>');

@@ -1,0 +1,13 @@
+<% unless @finish_records.blank? %>
+<p>已完成的考试</p>
+<table>
+<% @finish_records.each do |fr| %>
+  <tr>
+    <td><%= fr.title %></td>
+    <td><%= fr.finish_time.strftime("%m月%d日－%H点%M分") %></td>
+    <td><%= fr.score %></td>
+    <td><%= link_to "详细", :action => "show", :controller => "events", :id => fr.id %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>

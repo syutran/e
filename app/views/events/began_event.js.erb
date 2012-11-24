@@ -1,0 +1,24 @@
+$('#events').html('<%=  escape_javascript render(:partial => 'event', :locals => { :event => @event, :record => @event_record}) %> ');
+$('#events_list').html('<%= escape_javascript render(:partial => 'events_lists', :locals => {:events_list => @events, :event => @event}) %>');
+var num = <%= downtime(@event_record.limit_time) * 10 %>;
+        $("#over_time").html(num); // 初期值设置
+          function changeTime()
+          {
+              if(num > 0)
+              {
+                 num = num - 1;
+                 curnum = num/10;
+                $("#over_time").html(curnum.toFixed(1));
+             }
+             else
+               {
+                   if(num == 0)
+                   {
+
+                     window.location.href="/records/finished/" + <%= @event_record.id %>;
+                   }
+
+                   num = num - 1;
+                }
+            }
+            setInterval(changeTime,100);

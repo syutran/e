@@ -1,0 +1,50 @@
+<div class="header_title">
+  <div style="float: left;" > <h3>最新题库</h3> </div>
+  <div class="image_arrow" id="htbutton" > <%= img_arrow %> </div>
+  <div class="clearfloat"></div>
+</div>
+ 
+<div>
+<% @storages.each do |s| %>
+<div class="box_storage">
+  <div class="box_storage_left"><%= img_storage(s.typies)  %></div>
+  <div class="box_storage_right">
+       <div class="box_storage_title"> <%= s.user_category.title %></div>
+        <div class="box_storage_center">
+          <%= s.title %>[<%= link_to "详细", storage_path(s), :remote => true %>][<%= link_to "修改", edit_storage_path(s.id) %>]
+        </div>
+        <div id ="content_<%= s.id%>" class="cont"></div>
+  </div><div class="clearfloat"></div>
+  </div>
+<% end %>
+</div>
+
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>
+
+<div id="title_pup" class="raceShow">
+    <%= form_tag  :controller => "storages", :action => "storages_list" , :method => :post  do %>
+    <% i = 0 %>
+    <% current_user.user_categories.each do |uc| %>
+    <% i += 1 %>
+    <%= check_box_tag "ucid[#{uc.id}]",uc.id %><%= label_tag "ucid[#{uc.id}]",  uc.title   %>
+    <% if i % 3 == 0 %><br /><% end %>
+    <% end %>
+     <div id="hiderace"><%= submit_tag "OK", :class =>"submit" %></div>
+  <% end %>
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#htbutton").toggle(function(event){
+      event.stopPropagation();
+      var offset = $(event.target).offset();//取消事件冒泡
+      $("#title_pup").css({ top:offset.top + $(event.target).height() + "px", right:offset.left - 320 - $(event.target).width() + "px" });
+      $("#title_pup").show(400);//动画显示
+    },
+  function(event){
+    $("#title_pup").hide(400);
+  });
+  });
+</script>

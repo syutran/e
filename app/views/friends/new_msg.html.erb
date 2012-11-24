@@ -1,0 +1,10 @@
+<% form_for @msg, :url => {:action => "send_msg", :controller => "friends"} do |f| %>
+<div><%= "发送给#{@user.name}一条信息" %></div>
+
+<%= f.hidden_field :user_id, :value => @user.id %>
+<%= f.hidden_field :from_user, :value => current_user.id %>
+<%= f.hidden_field :act, :value=>false %>
+<div><%= f.text_area :msg, :size => "50x3" %></div>
+<div><%= f.submit "发送" %></div>
+
+<% end %>

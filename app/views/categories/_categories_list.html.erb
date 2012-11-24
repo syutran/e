@@ -1,0 +1,9 @@
+<div style="margin: 10px;">
+  <div><%= link_to "all", {:action => "home", :controller => "rules", :id => 0}  %></div>
+  <% all_header_categories.each do |ahc| %>
+  <div><%= link_to ahc.title, {:action => "home", :controller => "rules", :id => ahc.id} %></div><div>
+    <% sub_categories(ahc.id).each do |sc| %>
+      <%= link_to sc.title, {:action => "home", :controller => "rules", :id => sc.id} %>
+    <%  end %></div>
+  <% end %>
+</div>

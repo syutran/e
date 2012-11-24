@@ -1,0 +1,20 @@
+<% form_for [:admin, category] do |f| %>
+<div>
+  <%=  f.label :title, "标题" %>
+<%= f.text_field :title %>
+</div>
+<div>
+<%= f.label :super, "所属分类" %>
+<%= f.select :super, sub_categories %>
+</div>
+<div>
+  <%= f.label :description, "说明" %>
+  <%= f.text_area :description, :size => "30x3" %>
+</div>
+<div>
+  <%= f.submit "确认" %>
+</div>
+<% end %>
+<% content_for :sidebar do %>
+<%= render :partial => "menu" %>
+<% end %>

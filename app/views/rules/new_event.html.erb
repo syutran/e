@@ -1,0 +1,41 @@
+<div>
+  <div class="box_rules" >
+  <div class="box_rules_left"><div><%= image_tag @rule.user.face.url(:s48) %></div><div><%= @rule.user.name %></div></div>
+  <div class="box_rules_right">
+<div class="box_rules_right_title"><%= @rule.title %></div>
+  <div class="box_rules_right_categories">有效期：<%= format_datetime @rule.end_time %>[<%= @rule.limit_time %>分钟题]
+        <div>
+          源于分类:<%  @rule.user_categories.each do |rc| %>
+          [<%= rc.title  %>]
+    <% end %>
+  </div>
+    <div><%= @rule.fee > 0 ? ("收费#{@rule.fee}") : ("no fee") %></div>
+    
+    <div><p>说明：<%= @rule.description %></p></div>
+  </div><div class="clearfloat"></div>
+ <div class="box_rules_button">
+   <div id="create_e">
+     <%= "您的存款不足" if @rule.fee > current_user.money %>
+  <% if can_do_rule(@rule) %>
+        <%= button_to "生成试卷", {:action => "create_event", :controller => "rules", :id => @rule.id}, :class => "btn_ce" %>
+  <% end %></div>
+  </div>
+
+</div><div class="clearfloat"></div>
+</div></div>
+<div id="waiting" style="width: 300px; border: 1px #555 solid; text-align: center; display: none; height: 200px; background-color: #eee;">
+          正在生成试卷，请稍候...
+</div>
+<script type="text/javascript">
+          $(document).ready(function(){
+            $('.btn_ce').click(function(){
+              $('.box_rules').loading({
+                text: '正在生成，请稍候.........' ,
+                element:'#waiting',
+                align: 'center',
+                mask: true
+              });
+            });
+          });
+</script>
+

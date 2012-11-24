@@ -1,0 +1,40 @@
+<div class="header_title">
+  <div style="float: left;" > <h3>最新规则</h3> </div>
+  <div class="image_arrow" id="htbutton" > <%= img_arrow %> </div>
+  <div class="clearfloat"></div>
+</div>
+<div id="title_pup" class="pop_show">
+  <%= render :partial => "categories/categories_list"  %>
+</div>
+<% @last_rules.each do |rule| %>
+  <div class="box_rules" >
+    <div class="box_rules_left"><div><%= image_tag rule.user.face.url(:s48) %></div><div><%= rule.user.name %></div></div>
+    <div class="box_rules_right">
+      <div class="box_rules_right_title"><%= rule.title %></div>
+      <div class="box_rules_right_categories">有效期：<%= format_datetime(rule.end_time) %>[<%= rule.limit_time %>分钟题]
+        <div>
+          <% rule.user_categories.each do |ruc| %>
+            [ <%= ruc.title %>]
+          <% end %>
+        </div>
+        <div><p>说明：<%=h  rule.description.truncate(100) %></p></div>
+      </div>
+    </div><div class="clearfloat"></div>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#htbutton").toggle(function(event){
+      event.stopPropagation();
+      var offset = $(event.target).offset();//取消事件冒泡
+      $("#title_pup").css({ top:offset.top + $(event.target).height() + "px", right:offset.left - 320 - $(event.target).width() + "px" });
+      $("#title_pup").show(400);//动画显示
+    },
+    function(event){
+      $("#title_pup").hide(400);
+    });
+    $("#title_pup").click(function(){
+        $("#title_pup").hide(400);
+    });
+  });
+</script>

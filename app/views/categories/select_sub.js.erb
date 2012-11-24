@@ -1,0 +1,3 @@
+$('#category_<%= @category_id %>').hide();
+$('#category_<%= @category_id %>').html("<%= escape_javascript(render(:partial => 'select_sub', :locals => {:sub_categories => @sub_categories})) %>" );
+$('#category_<%= @category_id %>').show(1000);

@@ -1,0 +1,71 @@
+<%= form_for @user,:html => { :multipart => true }, :url => {:condivoller => 'users', :action => "update", :id => @user} do |f| %>
+  
+  <div class="form_title">
+        <h3>变更资料</h3>
+  </div>
+<div class="form_box">
+  <div class="form_row">
+    <div class="form_label"><div>登录邮箱</div></div>
+    <div class="form_field">
+       <%= @user.email %>
+      </div><div class="clearfloat"></div></div>
+  <div class="form_row">
+    <div class="form_label">存款余额</div>
+    <div class="form_field"><%= @user.money.round(2) %><%= link_to "充值与提现", {:action => "manage_money", :controller => "users"} %></div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="form_row">
+    <div class="form_label">题库行业</div>
+    <div class="form_field"><%=Category.find_by_id(@user.category_id).title unless @user.category_id.blank? %>
+    </div><div class="clearfloat"></div></div>
+    <div class="form_row">
+      <div class="form_label">
+      <%= f.label :name, "名字" %>
+      </div><div class="form_field">
+      <%= f.text_field :name %>
+      </div><div class="clearfloat"></div></div>
+    <div class="form_row">
+      <div class="form_label"><%= f.label :face, "头像" %></div>
+      <div class="form_field"><%= f.file_field :face %></div>
+      <div class="clearfloat"></div></div>
+    <div class="form_row"><div class="form_label">
+      <%= f.label :sex, "性别" %>
+      </div><div class="form_field">
+        <%= f.radio_button :sex, "nu" %><%= f.label :sex_nu,"女" %>
+        <%= f.radio_button :sex, "男" %>男
+      </div><div class="clearfloat"></div></div>
+    <div class="form_row"><div class="form_label">
+        <%= f.label :birthday, "出生日期" %>
+      </div><div class="form_field">
+        <%= f.date_select :birthday,:start_year => 1910, :use_month_numbers => true %>
+      </div><div class="clearfloat"></div></div>
+    <div class="form_row"><div class="form_label">
+        <%= f.label :city, "城市" %>
+      </div><div class="form_field">
+        <%= f.text_field :city %>
+      </div><div class="clearfloat"></div></div>
+    <div class="form_row"><div class="form_label">
+      <%= f.label :address, "通讯地址" %>
+      </div><div class="form_field">
+        <%= f.text_field :address %>
+      </div><div class="clearfloat"></div></div>
+    <div class="form_row"><div class="form_label">
+      <%= f.label :telephone, "电话" %>
+      </div><div class="form_field">
+       <%= f.text_field :telephone %>
+      </div><div class="clearfloat"></div></div>
+        <div class="form_row"><div class="form_label">
+          <%= f.label :description, "简要说明" %>
+      </div><div class="form_field">
+        <%= f.text_area :description, :rows => 5 %>
+      </div><div class="clearfloat"></div></div>
+        <div class="form_row"><div class="form_button">
+        <%= f.submit "确认变更" %>
+          </div><div class="clearfloat"></div></div>
+  </div>
+
+<% end %>
+
+<% content_for :sidebar do %>
+<%= render :partial => "users/users_menu"  %>
+<% end %>

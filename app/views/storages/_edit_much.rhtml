@@ -1,0 +1,81 @@
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itema.blank? %>  id="option_a">
+  <div class="input_storage_label"><%= f.label :akey, img_option("A"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itema,  :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :akey,{},"A","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemb.blank? %> id="option_b" >
+  <div class="input_storage_label"><%= f.label :bkey, img_option("B"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemb, :class => "input_area_option"  %></div>
+  <div class="input_storage_key"><%= f.check_box :bkey, {}, "B", "" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemc.blank? %> id="option_c" >
+  <div class="input_storage_label"><%= f.label :ckey, img_option("C"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemc, :class => "input_area_option"  %></div>
+  <div class="input_storage_key"><%= f.check_box :ckey, {}, "C", "" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemd.blank? %> id="option_d" >
+  <div class="input_storage_label"><%= f.label :dkey, img_option("D"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemd, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :dkey, {}, "D","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.iteme.blank? %> id="option_e" >
+  <div class="input_storage_label"><%= f.label :ekey, img_option("E"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :iteme, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :ekey, {}, "E","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemf.blank? %> id="option_f" >
+  <div class="input_storage_label"><%= f.label :fkey, img_option("F"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemf, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :fkey, {}, "F","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemg.blank? %> id="option_g" >
+  <div class="input_storage_label"><%= f.label :gkey, img_option("G"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemg, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :gkey, {}, "G","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemh.blank? %> id="option_h" >
+  <div class="input_storage_label"><%= f.label :hkey, img_option("H"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemh, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :hkey, {}, "H","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemi.blank? %> id="option_i" >
+  <div class="input_storage_label"><%= f.label :ikey, img_option("I"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemi, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :ikey, {}, "I","" %></div><div class="clearfloat"></div>
+</div>
+<div class="input_storage_row" <%= "style='display:none;'" if @storage.itemj.blank? %> id="option_j" >
+  <div class="input_storage_label"><%= f.label :jkey, img_option("J"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+  <div class="input_storage_field"><%= f.text_area :itemj, :class => "input_area_option" %></div>
+  <div class="input_storage_key"><%= f.check_box :jkey, {}, "J","" %></div><div class="clearfloat"></div>
+</div>
+
+<div class="input_storage_row">
+  <div class="input_storage_add_button"><input id="add_option" type="button" value="增加新选项" /></div>
+  <div class="input_storage_delete_button"> <input id="del_option" type="button" value="删除此选项" /> </div>
+  <div class="clearfloat"></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('#add_option').click(function(){
+      opt =["option_a","option_b","option_c","option_d","option_e","option_f","option_g","option_h","option_i","option_j"];
+      $.each(opt, function(){
+              if ($("#"+this).css("display") == "none") {
+                  $("#"+this).show(600);
+                  return false;
+               }
+          });
+     });
+     $('#del_option').click(function(){
+       opt =["option_j","option_i","option_h","option_g","option_f","option_e","option_d","option_c","option_b","option_a"];
+        $.each(opt, function(){
+              if ($("#"+this).css("display") == "block") {
+                  $("#"+this).find('textarea').val("");
+                  $("#"+this).hide(600);
+                  return false;
+               }
+          });
+     });
+  });
+</script>

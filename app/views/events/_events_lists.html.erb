@@ -1,0 +1,13 @@
+<div class="events_box">
+<% i , s = 0, events_list.length %>
+<% events_list.each do |e| %>
+  <% i = i + 1 %>
+<div class="events_list_e" <%= ("style='color:#fff;background-color: #666;'") if e.id == event.id %><%= ("style='background-color: #ddd;'") unless e.akey.blank? %>  >
+  <%= link_to "第#{i.to_s}题", {:action => "go_event", :id => e.id}, :remote => true %>
+</div>
+  <% if i % 10 == 0 %>
+  <div class="clearfloat"></div>
+  <% end %>
+<% end %>
+  <div class="clearfloat"></div>
+</div>

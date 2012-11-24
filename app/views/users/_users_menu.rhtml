@@ -1,0 +1,11 @@
+<div class="sub_menu">
+  <% unless current_user.blank? %>
+  <ul>
+    <li><%= link_to "行业分类", categories_path %></li>
+    <li><%= link_to "变更基础信息", edit_user_path(current_user) %></li>
+    <% if current_user.admin  %>
+      <%= render :partial => "admin/admin_menu"  %>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

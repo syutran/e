@@ -1,0 +1,14 @@
+<% if current_user.admin %>
+<%= form_for @category do |f| %>
+<table style="width: 500px">
+  <tr><td colspan="2"><h2>增加新分类</h2></td></tr>
+  <tr><td><%= f.label :title,"题目" %></td><td><%= f.text_field :title %></td></tr>
+  <tr><td><%= f.label :super, "父级分类" %></td><td><%= f.select :super, @super_categories %></td></tr>
+  <tr><td><%= f.label :description, "说明" %></td><td><%= f.text_area :description, :size => "40x4" %></td></tr>
+  <tr><td></td><td><%= f.submit "确认提交" %></td></tr>
+</table>
+<% end %>
+<% end %>
+<% content_for :sidebar do %>
+<%= render :partial => "menu" %>
+<% end %>

@@ -1,0 +1,24 @@
+<% unless @new_records.blank? %>
+<% @new_records.each do |nr| %>
+<div class="box_record" title="未进行的考试">
+  <div class="box_record_left"><div><%= "未进行的考试" %></div></div>
+  <div class="box_record_right">
+    <div class="box_record_title"><%= nr.title %></div>
+    <div class="box_record_center">
+      <%= nr.rule.end_time.strftime("%m月%d日－%H点%M分") %>
+    <%= nr.need_time %>
+    </div>
+    <div class="box_record_button">
+    <%= nr.rule.end_time > Time.now ?  (button_to "开始", :action => "eventing", :controller => "events", :id => nr.id) : "已经过期" %>
+    </div>
+
+  </div><div class="clearfloat"></div>
+</div>
+<% end %>
+<% else %>
+    <script type="text/javascript">
+      $(function(){
+        $.growlUI("","没有已经生成的试卷！");
+      });
+</script>
+<% end %>

@@ -1,0 +1,5 @@
+$('#doing_div_records').hide(1000);
+$('#new_div_records').hide(1000);
+$('#group_div_rules').hide(1000);
+$('#public_div_rules').html('<%= escape_javascript( render :partial => "public_rules" ) %>' );
+$('#public_div_rules').show(1000);

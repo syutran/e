@@ -1,0 +1,17 @@
+<%= render :partial => "manager_list"  %>
+<%= render :partial => "friends_list" %>
+<div id="abc">
+  click
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#abc').click(function(){
+      $.loading({
+        text: '正在生成，请稍候.........' ,
+        align: 'center',
+        mask: true
+      });
+    });
+  });
+</script>

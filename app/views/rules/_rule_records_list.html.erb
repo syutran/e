@@ -1,0 +1,27 @@
+<div style="width:auto;padding: 10px;margin: 10px;">
+<% i = 0 %>
+<% records.each do |r| %>
+  <div class="rule_user_record" id ="user_<%= r.user.id %>">
+    <div><%= image_tag(r.user.face(:s48)) %></div>
+    <div><%= r.user.name %></div>
+    <div><%= r.score.round(2).to_s unless r.score.blank? %></div>
+    <div><%= r.finish_time.strftime("%m月%d日") unless r.finish_time.blank? %></div>
+    <div><%= r.finish_time.strftime("%H点%M分") unless r.finish_time.blank? %></div>
+
+    <div><div id="inf_<%= r.user_id.to_s %>" onclick="reload(this)">
+<%= is_friend(current_user.id,r.user_id) ? link_to( "查看详情", {:action =>"show",:controller =>"friends", :id => r.user_id}, :remote =>true, :id => "dosm") : link_to( "加为考生", {:action=>"add_friend", :controller => "friends", :id => r.user_id}, :remote => true, :onclick =>"reload()") %>
+      </div></div>
+    </div>
+   <% i = i + 1 %>
+   <% if i % 5 == 0 %>
+    <div class="clearfloat"></div>
+    <% end %>
+<% end %>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#dosm").click(function(){
+      
+    });
+  });
+</script>

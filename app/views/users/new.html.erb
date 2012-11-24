@@ -1,0 +1,71 @@
+<div class="form_box">
+
+  <%= form_for @user do |f| %>
+      <div class="form_title"><h3>注册为考试网会员</h3></div>
+      <div class="form_row"><div>
+          <% if @user.errors.any? %>
+            <div class="error_messages">
+              <h2>Form is invalid</h2>
+              <ul>
+                <% for message in @user.errors.full_messages %>
+                  <li><%= message  %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div></div>
+      <div class="form_row"><div class="form_label">
+          <%= f.label :name, "名字" %>
+        </div><div class="form_field">
+          <%= f.text_field :name, :style => "width:200px;" %>
+        </div><div class="clearfloat"></div></div>
+      <div class="form_row"><div class="form_label">
+          <%= f.label :email, "邮箱地址" %>
+        </div><div class="form_field">
+          <%= f.text_field :email, :style => "width:200px;"  %>
+        </div><div class="clearfloat"></div></div>
+      <div class="form_row">
+        <div class="form_label">
+          <%= f.label :category_id, "行业分类" %>
+        </div>
+        <div class="form_field">
+          <%= f.select :category_id, form_select_category , :id => "category_select", :title => "您预建立题库应属的行业分类"%>（您预建立题库应属于的行业分类）
+        </div><div class="clearfloat"></div>
+      </div>
+      <div class="form_row"><div class="form_label">
+          <%= f.label :password, "密码" %>
+        </div><div class="form_field">
+          <%= f.password_field :password, :style => "width:200px;"  %>
+        </div><div class="clearfloat"></div></div>
+      <div class="form_row"><div class="form_label">
+          <%= f.label :password_confirmation, "密码确认" %>
+        </div><div class="form_field">
+          <%= f.password_field :password_confirmation, :style => "width:200px;", :id =>"password_confirmation", :title => "来确认一次登录密码"  %>
+        </div><div class="clearfloat"></div></div>
+
+      <div class="form_row"><div class="form_button">
+          <%= f.submit " 注册", :style => "margin-right:200px;"%>
+        </div><div class="clearfloat"></div></div>
+      <div class="recaptcha"> <%= recaptcha_tags %></div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#password_confirmation').poshytip({
+	className: 'tip-yellowsimple',
+	showOn: 'focus',
+	alignTo: 'target',
+	alignX: 'right',
+	alignY: 'center',
+	offsetX: 5
+    });
+    $('#category_select').poshytip({
+	className: 'tip-yellowsimple',
+	alignTo: 'target',
+	alignX: 'right',
+	alignY: 'center',
+	offsetX: 5
+    });
+  });
+</script>

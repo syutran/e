@@ -1,0 +1,31 @@
+<div class="box_record">
+  <div class="box_record_left">
+    <div><%= image_tag @record.rule.user.face(:s64) %></div>
+    <div> <%= @record.rule.user.name %> </div>
+  </div>
+  <div class="box_record_right">
+    <div class="box_record_title"><%= @record.title %><div class="score"><%= @record.score.round(2).to_s %></div></div>
+    <div class="box_record_center">
+      <div>分类列表：
+        <% @record.rule.user_categories.each do |ruc| %>
+        [ <%= ruc.title %>]
+         <% end %>
+        </div>
+      <div>
+        开始时间：<%= format_datetime(@record.start_time) %>，到：<%= format_datetime(@record.finish_time) %>
+      </div>
+      <div>
+        总题量：<%= @record.success + @record.faileds %>，成功数：<%= @record.success %>，失败数：<%= @record.faileds %>。共用：<%= @record.need_time %>秒。
+      </div>
+      <div>
+        限：<%= format_datetime(@record.limit_time) %>之前完成。限：<%= @record.rule.limit_time %>分钟完成
+      </div>
+      <div>
+        说明：
+        <%= @record.rule.description %>
+      </div>
+    </div>
+    <div class="box_record_button"></div>
+  </div><div class="clearfloat"></div>
+</div>
+

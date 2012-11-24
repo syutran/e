@@ -1,0 +1,83 @@
+<% unless event.itema.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"A", :checked => event.akey=="A", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_a"><%= event.itema %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemb.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"B", :checked => event.akey=="B", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_b"><%= event.itemb %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemc.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"C", :checked => event.akey=="C", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_c"><%= event.itemc %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemd.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"D", :checked => event.akey=="D", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_d"><%= event.itemd %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.iteme.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"E", :checked => event.akey=="E", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_e"><%= event.iteme %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemf.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"F", :checked => event.akey=="F", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_f"><%= event.itemf %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemg.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"G", :checked => event.akey=="G", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_g"><%= event.itemg %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemh.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"H", :checked => event.akey=="H", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_h"><%= event.itemh %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemi.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"I", :checked => event.akey=="I", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_i"><%= event.itemi %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+<% unless event.itemj.blank? %>
+<div class="events_row">
+  <div class="events_label"><%= f.radio_button :akey,"J", :checked => event.akey=="J", :class => "akey" %></div>
+  <div class="events_field"><label for="event_akey_j"><%= event.itemj %></label></div>
+  <div class="clearfloat"></div>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+$('.akey').live('click', function() {
+
+  $(this).parents('form:first').submit();
+});
+
+})
+</script>
+

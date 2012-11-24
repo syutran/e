@@ -1,0 +1,41 @@
+<div class="div_form_box">
+  <% form_for @rule do |f| %>
+    <div class="div_form_title">修改规则</div>
+    <div class="div_form_row">
+      <div class="div_form_left" ><%= f.label :title, "标题" %></div>
+      <div class="div_form_right"><%= f.text_field :title %></div>
+    </div>
+    <div class="div_form_row">
+      <div class="div_form_left"><%= f.label :start_time, "开始时间" %></div>
+      <div class="div_form_right"><%= f.datetime_select :start_time,:use_month_numbers => true %></div>
+    </div>
+   <div class="div_form_row">
+      <div class="div_form_left"><%= f.label :end_time, "终止时间" %></div>
+      <div class="div_form_right"><%= f.datetime_select :end_time,:use_month_numbers => true %></div>
+    </div>
+   <div class="div_form_row">
+      <div class="div_form_left"><%= f.label :limits, "开放范围" %></div>
+      <div class="div_form_right">
+        <%= f.radio_button :limits,"public" -%><%= f.label :limits_public, "公开" -%>
+        <%= f.radio_button :limits,"group" -%><%= f.label :limits_group, "我的考生" -%>
+        <%= f.radio_button :limits,"closed" -%><%= f.label :limits_closed, "关闭" -%>
+      </div>
+    </div><div class="clearfloat"></div>
+   <div class="div_form_row">
+      <div class="div_form_left"><%= f.label :reward, "奖励" %></div>
+      <div class="div_form_right"><%= f.check_box :reward,{},"true","false" %><%= f.label :reward, "启用节时加分" %></div>
+    </div><div class="clearfloat"></div>
+   <div class="div_form_row">
+      <div class="div_form_left"><%= f.label :description, "考生须知" %></div>
+      <div class="div_form_right"><%= f.text_area :description, :size => "40x3" %></div>
+    </div><div class="clearfloat"></div>
+   <div class="div_form_row">
+      <div class="div_form_left"></div>
+      <div class="div_form_right"><%= f.submit "确认修改" %></div>
+    </div>
+
+  <% end %>
+</div>
+<% content_for :sidebar do %>
+  <%= render :partial => "storages/storages_menu"  %>
+<% end %>

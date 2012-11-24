@@ -1,0 +1,21 @@
+<div class="sub_menu">
+  <ul>
+    <li style="padding:5px 0px;">题库</li>
+    <li class="sub_menu_item"><%= link_to "我的题库", storages_path  %></li>
+    <li class="sub_menu_item"><%= link_to "添加题目(Alt + a)", new_storage_path %></li>
+    <li style="padding:5px 0px;">规则</li>
+    <li class="sub_menu_item"><%= link_to "规则列表", rules_path %></li>
+    <li class="sub_menu_item"><%= link_to "新建规则", new_rule_path %></li>
+    <li style="padding:5px 0px;">分类</li>
+    <li class="sub_menu_item"><%= link_to "题目分类", user_categories_path %></li>
+    <li class="sub_menu_item"><%= link_to "创建分类", new_user_category_path %></li>
+  </ul>
+</div>
+<div style="clear: both"></div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.hotkeys.add('Alt+a', function(){
+      window.location.href='/storages/new';
+  });
+  });
+</script>

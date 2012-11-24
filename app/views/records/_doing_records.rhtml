@@ -1,0 +1,21 @@
+<% unless @doing_records.blank? %>
+<% @doing_records.each do |dr| %>
+  <div class="box_record" title ="正在进行中的考试">
+    <div class="box_record_left"><div>
+        
+      </div> </div>
+    <div class="box_record_right">
+      <div class="box_record_title"><%= dr.title %></div>
+      <div class="box_record_center"><%= dr.start_time %></div>
+      <div class="box_record_button"><%= button_to "继续考试" %></div>
+    </div><div class="clearfloat"></div>
+  </div>
+<% end %>
+<% else %>
+    <script type="text/javascript">
+      $(function(){
+        $.growlUI("","没有进行中的试卷！");
+      });
+</script>
+<% end %>
+

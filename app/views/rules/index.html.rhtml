@@ -1,0 +1,54 @@
+<div class="header_title">
+  <div style="float: left;" > <h3>最新規則</h3> </div>
+  <div class="image_arrow" id="htbutton" > <%= img_arrow %> </div>
+  <div class="clearfloat"></div>
+</div>
+
+<% @rules.each do |rule| %>
+<div class="box_rules" >
+  <div class="box_rules_left"><div><%= img_rule(rule.end_time) %></div></div>
+  <div class="box_rules_right">
+<div class="box_rules_right_title"><%= rule.title %></div>
+  <div class="box_rules_right_categories">
+    开始时间：<%= format_datetime(rule.start_time) %><br />
+    有效时间：<%= format_datetime(rule.end_time) %><br />
+    规则限时：[<%= rule.limit_time %>分钟]
+       <div>
+          <% rule.user_categories.each do |ruc| %>
+        [ <%= ruc.title %>]
+         <% end %>
+  </div>
+    <div><p>说明：<%= rule.description %></p></div>
+    <div class="box_rules_button" ><div class="div_button"><%= (link_to "详情", rule_path(rule)) if current_user.id == rule.user_id -%></div><div class="div_button"><%= link_to "修改", edit_rule_path(rule) -%></div></div>
+  </div>
+
+  </div><div class="clearfloat"></div>
+</div>
+
+
+
+<% end %>
+<div id="title_pup" class="raceShow" style="width: 160px;">
+  <div class="sub_menu_item"><%= link_to "全部", rules_path %></div>
+  <div class="sub_menu_item"><%= link_to "有效", rules_path(:request_rules =>"effective") %></div>
+  <div class="sub_menu_item"><%= link_to " 超期" , rules_path(:request_rules => "invalid") %></div>
+  <div class="sub_menu_item"><%= link_to " 未生效", rules_path(:request_rules => "nostart" ) %></div>
+</div>
+<% content_for :sidebar do %>
+<%= render :partial => "storages/storages_menu"  %>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#htbutton").toggle(function(event){
+      event.stopPropagation();
+      var offset = $(event.target).offset();//取消事件冒泡
+      $("#title_pup").css({ top:offset.top + $(event.target).height() + "px", right:offset.left - 320 - $(event.target).width() + "px" });
+      $("#title_pup").show(400);//动画显示
+      $('#title_pup').click(function(){$("#title_pup").hide(400)});
+    },
+  function(event){
+    $("#title_pup").hide(400);
+  });
+  });
+</script>

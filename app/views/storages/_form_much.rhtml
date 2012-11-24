@@ -1,0 +1,263 @@
+<div id="table_much" style="display: none" >
+  <div class="input_storage_row" id="chois_a">
+    <div class="input_storage_label"><%= f.label :akey,  img_option("A"), :class => "imgoption", :title => "点击设为正确答案" %></div>
+    <div class="input_storage_field"><%= f.text_area :itema, :class => "input_area_option" %></div>
+    <div class="input_storage_key"><%= f.check_box :akey,{},"A","" %></div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="input_storage_row" id="button_b">
+    <div class="input_storage_add_button"><input type="button" value="增加 B 选项" id="show_b" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 A 选项" id="hiden_a" /></div>
+    <div class="clearfloat"></div>
+  </div>
+   <div class="input_storage_row" id="chois_b" style="display: none">
+     <div class="input_storage_label"><%= f.label :bkey,  img_option("B"), :class => "imgoption", :title => "点击设为正确答案"   %> </div>
+     <div class="input_storage_field"><%= f.text_area :itemb,  :class => "input_area_option"  %></div>
+     <div class="input_storage_key"><%= f.check_box :bkey,{},"B","" %></div>
+     <div class="clearfloat"></div>
+   </div>
+  <div class="input_storage_row" id="button_c" style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 C 选项" id="show_c" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 B 选项" id="hiden_b" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id ="chois_c" style="display: none">
+    <div class="input_storage_label"><%= f.label :ckey, img_option("C"), :class => "imgoption", :title => "点击设为正确答案"   %></div>
+    <div class="input_storage_field"><%= f.text_area :itemc,  :class => "input_area_option" %></div>
+    <div class="input_storage_key"><%= f.check_box :ckey,{},"C","" %></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="button_d" style="display:none">
+    <div class="input_storage_add_button" ><input type="button" value="增加 D 选项" id="show_d" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 C 选项" id="hiden_c" /></div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="input_storage_row"  id="chois_d" style="display: none">
+    <div class="input_storage_label"><%= f.label :dkey, img_option("D"), :class => "imgoption" , :title => "点击设为正确答案"  %></div>
+    <div class="input_storage_field"><%= f.text_area :itemd, :class => "input_area_option"  %></div>
+    <div class="input_storage_key"><%= f.check_box :dkey,{},"D","" %></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="button_e"  style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 E 选项" id="show_e" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 D 选项" id="hiden_d" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="chois_e" style="display: none">
+  <div class="input_storage_label"><%= f.label :ekey, img_option("E"), :class => "imgoption" , :title => "点击设为正确答案"  %></div>
+  <div class="input_storage_field"><%= f.text_area :iteme, :class => "input_area_option"  %></div>
+  <div class="input_storage_key"><%= f.check_box :ekey,{},"E","" %></div>
+  <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="button_f"  style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 F 选项" id="show_f" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 E 选项" id="hiden_e" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="chois_f" style="display: none">
+    <div class="input_storage_label"><%= f.label :fkey, img_option("F"), :class => "imgoption", :title => "点击设为正确答案"   %></div>
+    <div class="input_storage_field"><%= f.text_area :itemf,  :class => "input_area_option"  %></div>
+     <div class="input_storage_key"><%= f.check_box :fkey,{},"F","" %></div>
+     <div class="clearfloat"></div>
+  </div>
+  <div class="input_storage_row" id="button_g"  style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 G 选项" id="show_g" /></div>
+  <div class="input_storage_delete_button"><input type="button" value="删除 F 选项" id="hiden_f" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="chois_g" style="display: none">
+    <div class="input_storage_label"><%= f.label :gkey, img_option("G"), :class => "imgoption" , :title => "点击设为正确答案"  %></div>
+    <div class="input_storage_field"><%= f.text_area :itemg, :class => "input_area_option"  %></div>
+     <div class="input_storage_key"><%= f.check_box :gkey,{},"G","" %></div>
+     <div class="clearfloat"></div>
+  </div>
+  <div class="input_storage_row" id="button_h"  style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 H 选项" id="show_h" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 G 选项" id="hiden_g" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="chois_h" style="display: none">
+    <div class="input_storage_label"><%= f.label :hkey, img_option("H"), :class => "imgoption", :title => "点击设为正确答案"   %></div>
+    <div class="input_storage_field"><%= f.text_area :itemh,  :class => "input_area_option"  %> </div>
+     <div class="input_storage_key"><%= f.check_box :hkey,{},"H","" %></div>
+  <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="button_i"  style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 I 选项" id="show_i" /></div>
+    <div class="input_storage_delete_button"><input type="button" value="删除 H 选项" id="hiden_h" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="chois_i" style="display: none">
+    <div class="input_storage_label"><%= f.label :ikey, img_option("I"), :class => "imgoption", :title => "点击设为正确答案"   %></div>
+    <div class="input_storage_field"><%= f.text_area :itemi, :class => "input_area_option"  %></div>
+     <div class="input_storage_key"> <%= f.check_box :ikey,{},"I","" %></div>
+  <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="button_j"  style="display:none">
+    <div class="input_storage_add_button"><input type="button" value="增加 J 选项" id="show_j" /></div>
+     <div class="input_storage_delete_button"><input type="button" value="删除 I 选项" id="hiden_i" /></div>
+    <div class="clearfloat"></div>
+  </div>
+
+  <div class="input_storage_row" id="chois_j" style="display: none">
+    <div class="input_storage_label"><%= f.label :jkey, img_option("J"), :class => "imgoption", :title => "点击设为正确答案"   %></div>
+    <div class="input_storage_field"><%= f.text_area :itemj,  :class => "input_area_option"  %></div>
+    <div class="input_storage_key"><%= f.check_box :jkey,{},"J","" %></div>
+   <div class="clearfloat"></div>
+  </div>
+    <div class="input_storage_row" id="button_k"  style="display:none">
+     <div style="padding-left:330px;"><input type="button" value="删除 J 选项" id="hiden_j" /></div>
+    <div class="clearfloat"></div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#table_much').show(1000);
+    $('#show_b').click(function(){
+        $('#button_b').hide();
+        $('#chois_b').show(1000);
+        $('#button_c').show();
+        return false;
+  });
+   $('#show_c').click(function(){
+        $('#button_c').hide();
+        $('#chois_c').show(1000);
+        $('#button_d').show();
+        return false;
+  });
+   $('#show_d').click(function(){
+        $('#button_d').hide();
+        $('#chois_d').show(1000);
+        $('#button_e').show();
+        return false;
+  });
+   $('#show_e').click(function(){
+        $('#button_e').hide();
+        $('#chois_e').show(1000);
+        $('#button_f').show();
+        return false;
+  });
+   $('#show_f').click(function(){
+        $('#button_f').hide();
+        $('#chois_f').show(1000);
+        $('#button_g').show();
+        return false;
+  });
+   $('#show_g').click(function(){
+        $('#button_g').hide();
+        $('#chois_g').show(1000);
+        $('#button_h').show();
+        return false;
+  });
+   $('#show_h').click(function(){
+        $('#button_h').hide();
+        $('#chois_h').show(1000);
+        $('#button_i').show();
+        return false;
+  });
+   $('#show_i').click(function(){
+        $('#button_i').hide();
+        $('#chois_i').show(1000);
+        $('#button_j').show();
+        return false;
+  });
+   $('#show_j').click(function(){
+        $('#button_j').hide();
+        $('#chois_j').show(1000);
+        $('#button_k').show(1000);
+        return false;
+  });
+
+
+    $('#hiden_a').click(function(){
+
+        $('#storage_itema').val("");
+        $('#chois_a').hide(1000);
+        $('#button_b').hide(1000);
+        return false;
+  });
+    $('#hiden_b').click(function(){
+        $('#button_b').show(1000);
+        $('#storage_itemb').val("");
+        $('#chois_b').hide(1000);
+        $('#button_c').hide(1000);
+        return false;
+  });
+      $('#hiden_c').click(function(){
+        $('#button_c').show(1000);
+        $('#storage_itemc').val("");
+        $('#chois_c').hide(1000);
+        $('#button_d').hide(1000);
+        return false;
+  });
+      $('#hiden_d').click(function(){
+        $('#button_d').show(1000);
+        $('#storage_itemd').val("");
+        $('#chois_d').hide(1000);
+        $('#button_e').hide(1000);
+        return false;
+  });
+      $('#hiden_e').click(function(){
+        $('#button_e').show(1000);
+        $('#storage_iteme').val("");
+        $('#chois_e').hide(1000);
+        $('#button_f').hide(1000);
+        return false;
+  });
+      $('#hiden_f').click(function(){
+        $('#button_f').show(1000);
+        $('#storage_itemf').val("");
+        $('#chois_f').hide(1000);
+        $('#button_g').hide(1000);
+        return false;
+  });
+      $('#hiden_g').click(function(){
+        $('#button_g').show(1000);
+        $('#storage_itemg').val("");
+        $('#chois_g').hide(1000);
+        $('#button_h').hide(1000);
+        return false;
+  });
+      $('#hiden_h').click(function(){
+        $('#button_h').show(1000);
+        $('#storage_itemh').val("");
+        $('#chois_h').hide(1000);
+        $('#button_i').hide(1000);
+        return false;
+  });
+      $('#hiden_i').click(function(){
+        $('#button_i').show(1000);
+        $('#storage_itemi').val("");
+        $('#chois_i').hide(1000);
+        $('#button_j').hide(1000);
+        return false;
+  });
+  $('#hiden_j').click(function(){
+        $('#button_j').show(1000);
+        $('#storage_itemj').val("");
+        $('#chois_j').hide(1000);
+        $('#button_k').hide(1000);
+        return false;
+  });
+  $(".imgoption").poshytip({
+  className: 'tip-yellowsimple',
+	showTimeout: 1,
+	alignTo: 'target',
+	alignX: 'left',
+        alignY: 'top',
+	offsetX: 5,
+	allowTipHover: false
+});
+  });
+</script>

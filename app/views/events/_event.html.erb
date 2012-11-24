@@ -1,0 +1,39 @@
+  <%= form_for event, :remote => true  do |f| %>
+  <div class="event_box">
+  <div class="events_row">
+    <div class="events_label"><%= f.label :typies, "类目类型" %></div>
+    <div class="events_field"><%= typies_tochinese(event.typies) %></div>
+    <div class="clearfloat"></div>
+  </div>
+  <div class="events_row">
+    <div class="events_label"><%= f.label :title, "题目" %></div>
+    <div class="events_field"><%= event.title %> </div>
+    <div class="clearfloat"></div>
+  </div>
+  <% if event.typies == "single" %>
+  <%= render :partial => "single_form", :locals =>{:f => f,:event => event}   %>
+  <% end %>
+  <% if event.typies == "much" %>
+  <%= render :partial => "much_form", :locals =>{:f => f, :event => event }   %>
+  <% end %>
+  <% if event.typies == "judge" %>
+  <%= render :partial => "judge_form", :locals =>{:f => f, :event => event}   %>
+  <% end %>
+  <div class="events_row">
+    <div class="events_button"><%= link_to "上一个", {:action => "last_event", :id => event }, :remote => true,  :class => "div_button" %>
+  <%= link_to "下一个", {:action => "next_event", :id => event }, :remote => true, :class=> "div_button" %>
+    <%= link_to "未解答", {:action => "never_event", :id => event}, :remote => true,  :class => "div_button" %>
+    <%= link_to "交卷", {:action => "finished", :controller =>"records", :id => record}, :class => "div_button"  %>
+    </div><div class="clearfloat"></div>
+  </div>
+
+</div>  <% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".div_button").click(function(){
+
+    })
+  });
+</script>
+
+

@@ -1,0 +1,5 @@
+$('.cont').hide(500);
+$('.cont').html("");
+$('#content_<%= @storage.id %>').hide(500);
+$('#content_<%= @storage.id %>').html("<%= escape_javascript(render(:partial => 'preview', :locals => {:storage => @storage})) %>" );
+$('#content_<%= @storage.id %>').show(1000);

@@ -1,0 +1,16 @@
+
+<table>
+  
+
+<% sub_categories.each do |c| %>
+<tr><td>
+    <%= c.title %>
+  </td><td>
+    <%= c.description %>
+</td><td>
+<%= link_to "选为我的分类", {:action => "select_category", :id => c.id} %>
+</td></tr>
+
+
+<% end %>
+</table>

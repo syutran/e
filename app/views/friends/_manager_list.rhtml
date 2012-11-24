@@ -1,0 +1,13 @@
+<% unless @managers.blank? %>
+<div class="">
+  <% @managers.each do |manager| %>
+  <div class="friends_row">
+    <div class="friends_single">
+<%= image_tag manager.user.face.url(:s64) %>
+      <div><%= manager.user.name %></div>
+    </div><div class="clearfloat"></div>
+  </div>
+  <% end %>
+</div>
+
+<% end %>

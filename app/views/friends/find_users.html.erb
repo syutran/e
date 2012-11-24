@@ -1,0 +1,8 @@
+<% @users.each do |u| %>
+<div id="topic">
+  <%= u.id %>
+  <%= u.name %>
+  <%= Category.find(u.category_id).title unless u.category_id.blank? %>
+<%= link_to "加为我的主考官", :action=>"new_msg", :id=>u.id %>
+</div>
+<% end %>

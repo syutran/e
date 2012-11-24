@@ -1,0 +1,12 @@
+<% unless @public_rules.blank? %>
+<div class="list_title">
+  可用的公共试卷
+</div>
+
+<% @public_rules.each do |rule| %>
+  <%= render :partial => "rule", :locals =>{:rule => rule} %>
+<% end %>
+
+<% else %>
+<% end %>
+

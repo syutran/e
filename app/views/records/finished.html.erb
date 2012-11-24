@@ -1,0 +1,25 @@
+<table align="center" width="80%" >
+  <tr>
+    <td>项目经理</td>
+    <td><p>[<%= @record.user.name %>]</p></td>
+  </tr><tr><td>成绩</td>
+    <td><h3>[<%= @record.score %>]</h3></td>
+  </tr>
+  <tr>
+    <td>工程</td>
+    <td>[<%= @record.title %>]</td>
+  </tr>
+  <tr>
+    <td>题目信息</td>
+    <td>总题量[<%= @record.success + @record.faileds %>]，成功［<%= @record.success %>］条，失败［<%= @record.faileds %>］条</td>
+  </tr>
+  <tr>
+    <td>时间信息</td>
+    <td>耗时［<%= @record.need_time %>］秒</td>
+  </tr>
+  <tr>
+    <td>
+      开始时间</td><td>［<%= @record.start_time %>］</td></tr><tr><td>结束时间</td><td>［<%= @record.finish_time %>］</td>
+  </tr>
+</table>
+

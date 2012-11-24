@@ -1,0 +1,23 @@
+<div class="sub_menu">
+  <ul>
+    <li class="sub_menu_item" title="查看有无正在进行中的考试"><%= link_to "进行中的考试", {:action => "get_doing_records", :controller => "records"}, :remote => true %></li>
+    <li class="sub_menu_item" title="查看有无已经生成的考试"><%= link_to "未进行的考试", {:controller => "records", :action => "get_new_records"}, :remote => true %></li>
+    <li class="sub_menu_item" title="我的主考官给我指定的试题"><%= link_to "主考官的新试题", {:controller => "records", :action => "get_group_rules"}, :remote => true %></li>
+    <li class="sub_menu_item" title="其他人的考试题"><%= link_to "可用的公共考试", {:controller => "records", :action => "get_public_rules"}, :remote => true %></li>
+  </ul>
+</div>
+<div style="clear:  both"></div>
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".sub_menu_item").poshytip({
+  className: 'tip-yellowsimple',
+	showTimeout: 1,
+	alignTo: 'target',
+	alignX: 'left',
+        alignY: 'center',
+	offsetX: 5,
+	allowTipHover: false
+    });
+    
+  });
+</script>

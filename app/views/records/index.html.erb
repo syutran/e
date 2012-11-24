@@ -1,0 +1,26 @@
+<div id="doing_div_records">
+<%= render :partial => "doing_records" %>
+</div>
+<div id="new_div_records">
+<%= render :partial => "new_records" %>
+</div>
+<div id="group_div_rules">
+<%= render :partial => "group_rules" %>
+</div>
+<div id="public_div_rules">
+<%= render :partial => "public_rules" %>
+</div>
+<% content_for :sidebar do %>
+<%= render :partial => "records/records_menu"  %>
+<% end %>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".box_rules").poshytip({
+	className: 'tip-yellowsimple',
+	alignTo: 'target',
+	alignX: 'left',
+	alignY: 'center',
+	offsetX: 5
+    });
+});
+</script>

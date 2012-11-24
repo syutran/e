@@ -1,0 +1,12 @@
+<% @categories.each do |category| %>
+<div>
+
+<%= category.title %>
+ <%= category.description %>
+  <%= link_to "edit", edit_admin_category_path(category) %>
+  <%= link_to "show", admin_category_path(category) %>
+</div>
+<% end %>
+<% content_for :sidebar do %>
+<%= render :partial => "menu" %>
+<% end %>
