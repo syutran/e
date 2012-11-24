@@ -20,7 +20,7 @@
         <%= password_field_tag :password, params[:password], :style => "width:200px;" %>
       </div><div class="clearfloat"></div></div>
     <div class="form_row">
-      <div class="form_button"><%= submit_tag  "登录", :style => "margin-right:200px;" %>  </div></div>
+    <div class="form_button"><%= submit_tag  "登录", :style => "margin-right:200px;" %><%= link_to '注册为会员', new_user_path , :style => "margin-right:100px;" %> </div></div>
   <% end %><div class="clearfloat"></div>
 
 </div>

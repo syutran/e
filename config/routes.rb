@@ -35,7 +35,8 @@ E::Application.routes.draw do
   resources :records
   resources :friends
 
-  root :to => "rules#home"
+  # root :to => "rules#home"
+  root :to => "sessions#new"
 
   match ':controller(/:action(/:id(.:format)))'
 end

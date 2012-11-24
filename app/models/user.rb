@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     :s32 => "32x32#",
     :s16 => "16x16#",
   },
-    :default_url => "default_faces/:style.jpg"
+  :default_url => "default_faces/:style.jpg"
   attr_accessor :password
   before_save :encrypt_password, :default_money
   has_many :user_categories

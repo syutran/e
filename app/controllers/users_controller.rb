@@ -13,13 +13,13 @@ class UsersController < ApplicationController
   end
 
   def new
-    @page_title ="注册为考试网会员"
+    @page_title ="注册为会员"
     @user = User.new
   end
 
   def create
     @user = User.new(params[:user])
-    if verify_recaptcha && @user.save
+    if @user.save
       redirect_to log_in_path
     else
       render "new"
