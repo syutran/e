@@ -1,0 +1,8 @@
+ <div class="side_face">
+   <div style=" float: left;margin:1px 8px 1px 8px;" ><%= image_tag current_user.face.url(:s80)  %></div>
+   <%= current_user.name %><br />
+   <%= Category.find(current_user.category_id).title  if current_user.category_id %><br />
+   <%= current_user.city %><br />
+   <%= link_to "我的资料", users_path %>
+</div>
+<div style="clear: both"></div>

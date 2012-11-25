@@ -4,6 +4,7 @@ E::Application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "sign_up" => "users#new", :as => "sign_up"
+  get "user_activated" => "users#activated", :as => "user_activated"
   get "manage_money" => "users#manage_money", :as => "manage_money"
   put "update_event" => "events#update_event", :as => "update_event"
 

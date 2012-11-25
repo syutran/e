@@ -19,11 +19,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.activated = Digest::SHA2.hexdigest(Time.now.to_s.split(//).sort_by {rand}.join )
     if @user.save
-      redirect_to log_in_path
+      recipient = @user.email
+      title = @user.name + "欢迎您"
+      message = "十分感谢您注册成我为我们的会员，点击这个链接：http://localhost:3000/user_activated_" + @user.activated + " 激活您的账号！"
+      UserMailer.confirm(recipient,title,message).deliver
+      redirect_to user_activated_path
     else
       render "new"
     end
+  end
+  def activated
+    render :text => "我们已将用于激活账号的链接发至您的邮箱，请注意查收并于3天内将账号激活！"
   end
 
   def show
